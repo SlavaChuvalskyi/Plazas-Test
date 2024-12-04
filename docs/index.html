@@ -962,28 +962,6 @@
             f.__ && f.__(e, n), l = (_ = typeof t == "function") ? null : t && t.__k || n.__k, r = [], V(n, e = (!_ && t || n).__k = ln(W, null, [e]), l || F, F, n.ownerSVGElement !== void 0, !_ && t ? [t] : l ? null : n.firstChild ? N.call(n.childNodes) : null, r, !_ && t ? t : l ? l.__e : n.firstChild, _), an(r, e)
         }
 
-        function Sn(e, n) {
-            var t = {
-                __c: n = "__cC" + _n++, __: e, Consumer: function (_, l) {
-                    return _.children(l)
-                }, Provider: function (_) {
-                    var l, r;
-                    return this.getChildContext || (l = [], (r = {})[n] = this, this.getChildContext = function () {
-                        return r
-                    }, this.shouldComponentUpdate = function (u) {
-                        this.props.value !== u.value && l.some(R)
-                    }, this.sub = function (u) {
-                        l.push(u);
-                        var a = u.componentWillUnmount;
-                        u.componentWillUnmount = function () {
-                            l.splice(l.indexOf(u), 1), a && a.call(u)
-                        }
-                    }), _.children
-                }
-            };
-            return t.Provider.__ = t.Consumer.contextType = t
-        }
-
         N = rn.slice, f = {
             __e: function (e, n) {
                 for (var t, _, l; n = n.__;) if ((t = n.__c) && !t.__) try {
@@ -1019,55 +997,9 @@
             }], _.__c = g), _.__
         }
 
-        function Pn(e, n) {
-            var t = P(x++, 3);
-            !f.__s && q(t.__H, n) && (t.__ = e, t.__H = n, g.__H.__h.push(t))
-        }
-
-        function xn(e, n) {
-            var t = P(x++, 4);
-            !f.__s && q(t.__H, n) && (t.__ = e, t.__H = n, g.__h.push(t))
-        }
-
-        function Dn(e) {
-            return S = 5, dn(function () {
-                return {current: e}
-            }, [])
-        }
-
-        function wn(e, n, t) {
-            S = 6, xn(function () {
-                typeof e == "function" ? e(n()) : e && (e.current = n())
-            }, t == null ? t : t.concat(e))
-        }
-
         function dn(e, n) {
             var t = P(x++, 7);
             return q(t.__H, n) && (t.__ = e(), t.__H = n, t.__h = e), t.__
-        }
-
-        function Tn(e, n) {
-            return S = 8, dn(function () {
-                return e
-            }, n)
-        }
-
-        function Un(e) {
-            var n = g.context[e.__c], t = P(x++, 9);
-            return t.c = e, n ? (t.__ == null && (t.__ = !0, n.sub(g)), n.props.value) : e.__
-        }
-
-        function An(e, n) {
-            f.useDebugValue && f.useDebugValue(n ? n(e) : e)
-        }
-
-        function Mn(e) {
-            var n = P(x++, 10), t = bn();
-            return n.__ = e, g.componentDidCatch || (g.componentDidCatch = function (_) {
-                n.__ && n.__(_), t[1](_)
-            }), [t[0], function () {
-                t[1](void 0)
-            }]
         }
 
         function Hn() {
