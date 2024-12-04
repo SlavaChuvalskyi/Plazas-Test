@@ -1114,13 +1114,13 @@
             function touchStartHandler(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                setStartTouchX(event?.touches[0].pageX ?? 0);
+                setStartTouchX(event?.touches[0].clientX ?? 0);
             }
 
             function touchEndHandler(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                if ((event?.touches[0].pageX ?? 0) !== startTouchX) {
+                if ((event?.changedTouches[0].clientX ?? 0) !== startTouchX) {
                     clickHandler(e);
                 }
             }
