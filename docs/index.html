@@ -776,7 +776,7 @@
                             <button class="arrow-btn">❮</button>
                         </div>`
                     }
-                    <img src=${'./assets/' + imagesArray[activeIndexImage]} id="image-block" onclick="${clickHandler}"
+                    <img src=${imagesArray[activeIndexImage]} id="image-block" onclick="${clickHandler}"
                          alt="${title}"/>
                     ${showSlider && html`
                         <div id="rightArrow" class="right-arrow-wrapper" ontouchend="${clickHandler}" onclick="${clickHandler}">
