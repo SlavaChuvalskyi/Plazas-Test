@@ -1111,16 +1111,16 @@
             const showSlider = imagesArray.length > 1;
             const touchScreen = window.navigator.maxTouchPoints > 0;
 
-            function touchStartHandler() {
+            function touchStartHandler(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                setStartTouchX(event.touches[0].pageX);
+                setStartTouchX(event?.touches[0].pageX ?? 0);
             }
 
             function touchEndHandler(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                if (event.touches[0].pageX > startTouchX) {
+                if ((event?.touches[0].pageX ?? 0) !== startTouchX) {
                     clickHandler(e);
                 }
             }
