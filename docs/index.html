@@ -1144,8 +1144,8 @@
                 <div class='feature-img'>
                     ${showSlider && html`
                         <div id="leftArrow" class="left-arrow-wrapper"
-                             ontouchstart="${touchScreen ? undefined : touchStartHandler}"
-                             ontouchend="${touchScreen ? undefined : touchEndHandler}"
+                             ontouchstart="${touchScreen ? touchStartHandler : undefined }"
+                             ontouchend="${touchScreen ? touchEndHandler : undefined }"
                              onclick="${clickHandler}">
                             <button class="arrow-btn">❮</button>
                         </div>`
@@ -1154,8 +1154,8 @@
                          alt="${title}"/>
                     ${showSlider && html`
                         <div id="rightArrow" class="right-arrow-wrapper"
-                             ontouchstart="${touchScreen ? undefined : touchStartHandler}"
-                             ontouchend="${touchScreen ? undefined : touchEndHandler}"
+                             ontouchstart="${touchScreen ? touchStartHandler : undefined }"
+                             ontouchend="${touchScreen ? touchEndHandler : undefined }"
                              onclick="${clickHandler}">
                             <button class="arrow-btn">❯</button>
                         </div>`}
