@@ -755,6 +755,9 @@
             const showSlider = imagesArray.length > 1;
 
             function clickHandler(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
                 if (imagesArray.length <= 1) {
                     return;
                 }
