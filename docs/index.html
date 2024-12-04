@@ -24,21 +24,20 @@
             tab-size: 4;
 
             --app-bg-color: linear-gradient(135deg, #f7f7f7, #eaeaea);
+            --head-text-color: #333333;
+            --text-color: #5a5a5a;
 
             background-image: var(--app-bg-color);
-            color: #5a5a5a;
+            color: var(--text-color);
             font-synthesis: none;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             -webkit-text-size-adjust: 100%;
 
-            color-scheme: light only;
-
             --btn-active-bg-color: linear-gradient(135deg, #e84c88, #f29c44);
             --btn-active-text-color: #ffffff;
 
-            --text-color: #333333;
             --arrow-text-color: #4fc39b;
             --arrow-text-bg: linear-gradient(45deg, #5fd5b6, #d0f224);
             --arrow-box-shadow: 0px 4px 8px rgba(79, 195, 155, 0.3), 0px 2px 4px rgba(0, 0, 0, 0.1);
@@ -46,6 +45,11 @@
             --feature-bg-color: linear-gradient(85deg, #f1fff9, #f1fff900 51%);
             --left-arrow-wrapper-bg-color: linear-gradient(to right, rgb(215 236 225 / 40%), transparent);
         }
+
+        @media (prefers-color-scheme: dark) {
+
+        }
+
 
         body {
             margin: 0 auto;
@@ -168,7 +172,7 @@
         .header-title {
             font-size: 1.7rem;
             font-weight: 700;
-            color: var(--text-color);
+            color: var(--head-text-color);
             line-height: 2rem;
             letter-spacing: .05rem;
         }
@@ -253,7 +257,7 @@
         .feature-description-title {
             width: 100%;
             font-size: 1.5rem;
-            color: var(--text-color);
+            color: var(--head-text-color);
             font-weight: 600;
             line-height: 1.7rem;
             letter-spacing: .05rem;
