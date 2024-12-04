@@ -1120,7 +1120,7 @@
             function touchEndHandler(e) {
                 const diffX = ((e?.changedTouches[0].clientX ?? 0) - startTouchX);
                 const diffY = ((e?.changedTouches[0].clientY ?? 0) - startTouchY);
-                if ((diffX < -3 || diffX > 3) && diffY <= 10) {
+                if ((diffX < -10 || diffX > 10) && diffY <= 15) {
                     e.preventDefault();
                     e.stopPropagation();
                     clickHandler(diffX > 3 ? "rightArrow" : "leftArrow");
