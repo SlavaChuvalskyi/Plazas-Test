@@ -1108,20 +1108,24 @@
 
             const [activeIndexImage, setActiveImage] = useState(0);
             const [startTouchX, setStartTouchX] = useState(0);
+            const [startTouchY, setStartTouchY] = useState(0);
             const showSlider = imagesArray.length > 1;
             const touchScreen = window.navigator.maxTouchPoints > 0;
 
             function touchStartHandler(e) {
-                e.preventDefault();
-                e.stopPropagation();
                 setStartTouchX(event?.touches[0].clientX ?? 0);
+                setStartTouchY(event?.touches[0].clientY ?? 0);
             }
 
             function touchEndHandler(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                if ((event?.changedTouches[0].clientX ?? 0) !== startTouchX) {
+                const diffX = Math.abs((event?.changedTouches[0].clientX ?? 0) - startTouchX);
+                const diffY = Math.abs((event?.changedTouches[0].clientY ?? 0) - startTouchY);
+                if (diffX > 3 && diffY <= 10 ) {
                     clickHandler(e);
+                    setStartTouchX(0);
+                    setStartTouchY(0);
                 }
             }
 
@@ -1146,7 +1150,8 @@
                         <div id="leftArrow" class="left-arrow-wrapper"
                              ontouchstart="${touchScreen ? touchStartHandler : undefined }"
                              ontouchend="${touchScreen ? touchEndHandler : undefined }"
-                             onclick="${clickHandler}">
+                             onclick="${touchScreen ? undefined : clickHandler}"
+                        >
                             <button class="arrow-btn">❮</button>
                         </div>`
                     }
@@ -1156,7 +1161,8 @@
                         <div id="rightArrow" class="right-arrow-wrapper"
                              ontouchstart="${touchScreen ? touchStartHandler : undefined }"
                              ontouchend="${touchScreen ? touchEndHandler : undefined }"
-                             onclick="${clickHandler}">
+                             onclick="${touchScreen ? undefined : clickHandler}"
+                        >
                             <button class="arrow-btn">❯</button>
                         </div>`}
                 </div>
