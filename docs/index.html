@@ -997,11 +997,6 @@
             }], _.__c = g), _.__
         }
 
-        function dn(e, n) {
-            var t = P(x++, 7);
-            return q(t.__H, n) && (t.__ = e(), t.__H = n, t.__h = e), t.__
-        }
-
         function Hn() {
             I.forEach(function (e) {
                 if (e.__P) try {
@@ -1060,12 +1055,6 @@
             e.__c = e.__(), g = n
         }
 
-        function q(e, n) {
-            return !e || e.length !== n.length || n.some(function (t, _) {
-                return t !== e[_]
-            })
-        }
-
         function vn(e, n) {
             return typeof n == "function" ? n(e) : n
         }
@@ -1118,7 +1107,23 @@
             }
 
             const [activeIndexImage, setActiveImage] = useState(0);
+            const [startTouchX, setStartTouchX] = useState(0);
             const showSlider = imagesArray.length > 1;
+            const touchScreen = window.navigator.maxTouchPoints > 0;
+
+            function touchStartHandler() {
+                e.preventDefault();
+                e.stopPropagation();
+                setStartTouchX(event.touches[0].pageX);
+            }
+
+            function touchEndHandler(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (event.touches[0].pageX > startTouchX) {
+                    clickHandler(e);
+                }
+            }
 
             function clickHandler(e) {
                 e.preventDefault();
@@ -1138,7 +1143,9 @@
             return html`
                 <div class='feature-img'>
                     ${showSlider && html`
-                        <div id="leftArrow" class="left-arrow-wrapper" ontouchend="${clickHandler}"
+                        <div id="leftArrow" class="left-arrow-wrapper"
+                             ontouchstart="${touchScreen ? undefined : touchStartHandler}"
+                             ontouchend="${touchScreen ? undefined : touchEndHandler}"
                              onclick="${clickHandler}">
                             <button class="arrow-btn">❮</button>
                         </div>`
@@ -1146,7 +1153,9 @@
                     <img src=${imagesArray[activeIndexImage]} id="image-block" onclick="${clickHandler}"
                          alt="${title}"/>
                     ${showSlider && html`
-                        <div id="rightArrow" class="right-arrow-wrapper" ontouchend="${clickHandler}"
+                        <div id="rightArrow" class="right-arrow-wrapper"
+                             ontouchstart="${touchScreen ? undefined : touchStartHandler}"
+                             ontouchend="${touchScreen ? undefined : touchEndHandler}"
                              onclick="${clickHandler}">
                             <button class="arrow-btn">❯</button>
                         </div>`}
