@@ -1,0 +1,254 @@
+ :root {
+            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+            line-height: 1.5;
+            font-weight: 400;
+            tab-size: 4;
+            background-image: linear-gradient(to bottom right, #fefce8, #f7fee7);
+
+            color: #222;
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        #app {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1 1 auto;
+            padding: 0 2rem;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 4rem;
+            position: relative;
+        }
+
+        .dashboard-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            padding: 1rem;
+            top: -1rem;
+            right: -1.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: .05rem;
+            opacity: .8;
+            z-index: 10;
+        }
+
+        .dashboard-link:hover {
+            opacity: 1;
+            box-shadow: 0 1px 2px 0 rgb(101, 163, 13);
+        }
+
+        .header-title {
+            padding-top: 8rem;
+            font-size: 1.7rem;
+            line-height: 2rem;
+            letter-spacing: .05rem;
+            font-weight: 700;
+        }
+
+        .header-sub-title {
+            margin-top: 1rem;
+            font-size: 1rem;
+            line-height: 1.2rem;
+            letter-spacing: .025em;
+            font-weight: 400;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            height: 100%;
+            margin-top: 4rem;
+            padding: .5rem 1rem;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .content-feature {
+            display: flex;
+            align-items: center;
+            margin: 4rem 0;
+            animation: appear linear;
+            animation-timeline: view();
+            animation-range: entry cover 15%;
+        }
+
+        .content-feature:nth-child(even) {
+            flex-flow: row-reverse;
+            justify-content: flex-end;
+        }
+
+        .feature-wrapper {
+            display: flex;
+            align-items: center;
+            width: 50%;
+            margin: 0 1rem;
+        }
+
+        .feature-description {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+			width: 100%;
+        }
+
+        .feature-description-title {
+            width: 100%;
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+            letter-spacing: .05rem;
+            font-weight: 600;
+        }
+
+        .feature-description-sub-title {
+            width: 100%;
+            margin: .5rem 0;
+            font-size: 1.2rem;
+            line-height: 1.3rem;
+            letter-spacing: .05rem;
+            font-weight: 400;
+        }
+
+        .feature-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 1rem;
+            width: 50%;
+        }
+
+        .feature-img > img {
+            width: 100%;
+            max-width: 250px;
+            height: 90%;
+            min-height: 300px;
+            box-shadow: 2px 4px 10px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .feature-list {
+            width: 95%;
+            margin: 0 .5rem;
+            padding: 0 1rem;
+        }
+
+        .feature-list-item {
+            margin-top: .5rem;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: .5rem;
+			margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 2.5rem;
+            padding: 0 1.5rem;
+            border: solid 1px rgb(212 212 212);
+            border-radius: .375rem;
+            letter-spacing: .05em;
+            outline-width: 0;
+            font-weight: 600;
+            opacity: .8;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            opacity: 1;
+            box-shadow: 0 1px 1px 0 rgb(101, 163, 13, .7)
+        }
+
+        .action-color {
+            color: rgb(255 255 255);
+            background-color: rgb(101, 163, 13);
+        }
+
+        .mt-8 {
+            margin-top: 2rem;
+        }
+
+        .brand-color {
+            color: rgb(63 98 18);
+        }
+
+        @media (min-width: 856px) {
+            #app {
+            }
+
+            .feature-img > img {
+                max-width: 380px;
+                min-height: 300px;
+            }
+        }
+
+		@media (min-width: 1200px) {
+			#app {
+			}
+
+			.feature-img > img {
+				max-width: 425px;
+				min-height: 330px;
+			}
+		}
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                color: #ccc;
+                background-color: #1a1a1a;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: .3rem;
+            height: .2rem;
+            border-left: solid 1px;
+            border-radius: 3px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            border-radius: 3px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            border-radius: 3px;
+            background: #555;
+        }
