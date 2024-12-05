@@ -358,14 +358,27 @@
             justify-content: center;
             height: 2.5rem;
             padding: 1.5rem;
-            border: none;
             border-radius: .5rem;
             letter-spacing: .05em;
             outline-width: 0;
             font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            background: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            color: var(--text-color);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .btn:hover {
+            -webkit-box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+            -webkit-transform: translateY(-2px);
+            -ms-transform: translateY(-2px);
+            transform: translateY(-2px);
+            -webkit-transition: all 0.2s ease;
+            -o-transition: all 0.2s ease;
+            transition: all 0.2s ease;
         }
 
         .action-color {
@@ -1110,7 +1123,7 @@
             }
 
             return html`
-                <button class='btn action-color mt-8' onclick="${clickHandler}">CREATE YOUR FREE VENDOR SHOP AND MARKET
+                <button class='btn mt-8' onclick="${clickHandler}">CREATE YOUR FREE VENDOR SHOP AND MARKET
                 </button>`
         }
 
