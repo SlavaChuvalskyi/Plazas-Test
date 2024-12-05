@@ -118,6 +118,32 @@
             position: relative;
         }
 
+        .signup-link
+        {
+            width: max-content;
+            margin-top: .5rem;
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+            letter-spacing: .025em;
+            font-weight: 500;
+            color: var(--text-color);
+            text-align: left;
+            border-radius: 8px;
+        }
+
+        .signup-link:before
+        {
+            display:inline-block;
+            content: "\01F449";
+            margin-right: 1rem;
+            text-decoration:none;
+        }
+
+        .signup-link:hover
+        {
+            opacity: 0.8;
+        }
+
         .dashboard-link {
             display: -webkit-box;
             display: -ms-flexbox;
@@ -304,13 +330,12 @@
             align-items: center;
             position: relative;
             width: 100%;
-            padding: .5rem 1rem;
         }
 
         .feature-img > img {
             width: 100%;
             max-width: 430px;
-            height: 300px;
+            height: 350px;
             padding: 1rem 0.5rem;
             -o-object-fit: contain;
             object-fit: contain;
@@ -357,7 +382,7 @@
             -ms-flex-pack: center;
             justify-content: center;
             height: 2.5rem;
-            padding: 1.5rem;
+            padding: 2rem 1.5rem;
             border-radius: .5rem;
             letter-spacing: .05em;
             outline-width: 0;
@@ -497,17 +522,17 @@
                 font-size: 2.2rem;
             }
 
-            .header-sub-title {
+            .header-sub-title, .signup-link {
                 font-size: 1.6rem;
                 margin-top: 1rem;
             }
 
             .dashboard-link {
-                width: 130px;
-                height: 130px;
+                width: 150px;
+                height: 150px;
                 font-size: 1.5rem;
-                top: -2.5rem;
-                right: -1rem;
+                top: -3.2rem;
+                right: -.5rem;
             }
 
             .feature-description-title {
@@ -526,11 +551,6 @@
 
             .feature-wrapper {
                 width: 70%;
-            }
-
-            .btn {
-                font-size: 1.4rem;
-                padding: 2rem 1.5rem;
             }
         }
 
@@ -604,7 +624,7 @@
                 font-size: 1.4rem;
             }
 
-            .header-sub-title {
+            .header-sub-title, .signup-link {
                 font-size: 1rem;
                 margin-top: 0;
             }
@@ -664,13 +684,14 @@
             }
 
             .feature-img > img {
-                max-width: 300px;
-                height: 200px;
+                max-width: 320px;
+                height: 240px;
                 border-radius: 6px;
             }
 
             .btn {
                 padding: 2rem 1rem;
+                line-height: 1.5;
                 margin-top: 2rem;
                 font-size: .9rem;
             }
@@ -692,7 +713,7 @@
             }
 
             .header {
-                padding: 1rem 2rem;
+                padding: 1rem;
             }
 
             .header-title {
@@ -1122,9 +1143,13 @@
                 window.location.href = "./signup"
             }
 
-            return html`
-                <button class="${'btn mt-8'} ${active !== false ? ' action-color' : ''}" onclick="${clickHandler}">CREATE YOUR FREE VENDOR SHOP AND MARKET
+            if(active){
+                return html`<button class="btn mt-8 action-color" onclick="${clickHandler}">CREATE YOUR FREE VENDOR SHOP AND MARKET
                 </button>`
+            }
+
+            return html`
+                <a href={'/signup'} class="signup-link">Create your free vendor shop and market</a>`
         }
 
         function ImageSlider(imagesArray, title) {
@@ -1215,9 +1240,9 @@
                         <div class="logo-wrapper">
                             <span class="header-title">Welcome to PLAZAS</span>
                             <span class="header-sub-title">The most complete Telegram e-commerce solution.</span>
+                            <${() => SignUpLink(false)}/>
                         </div>
                     </div>
-                    <${() => SignUpLink(false)}/>
                     <${DashboardLink}/>
 
                 </div>`
