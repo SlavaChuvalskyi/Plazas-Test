@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" style="color-scheme: dark;">
+<html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="The most complete Telegram e-commerce solution.">
-    <meta name="color-scheme" content="dark light">
     <link rel="icon" type="image/png" sizes="48x48"
           href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAABcVBMVEUAAAAAgABVVQBAahU7YhQ5Yw5DXg1AZg0/YRE/YxE+YhNAYxM/YhM/YRNAYxI/YhE/YRE+YxFAYhE/YRM/YhM+YhI/YxI/YhI+YhI/YhI/YRI/YhI/YhI/YRI/YhI/YhI/YhI/YhI/YhI/YhM/YhI/YhI/YhJAYxNBYxRBZBVCZBZEZhdGaBlHaBpHaRtIaRxJah1Kax9MbCBNbSFObiNRcSZUdCpVdCtaeTFcezNdezRgfjhhfzpqhkNrh0RtiUd3kFN4kVN4klR7lFeCmV6Em2CFnGKHnWSKoGeLoGiOo2uRpm+arXmcr3ucsH2esX+fsoGgs4GitIKouoqpuouvv5KxwZS0xJi5x5y6yJ28yqC+zKPBzqbK1rHM17PP2bbS3LrV3r3V3r7Z4cHa4sLd5Mbh58nh6Mrl68/n7dHp79Xr8dbs8tjt89nv9Nrv9Nvw9dzy9t7z9+D0+OH1+eH1+eL3++P4++T5/Ob6/ef///97XinDAAAAJnRSTlMAAgMMDRITFGlqa2xtbnR1dnd4srO0tbe4ubre3+Hi4+/w8fj5/oRH3oUAAAABYktHRHo41YVqAAABn0lEQVRIx62W51PCMBjGUxmKIiqgiIqAYrAKorj3nrjFVVBwT9yK/e9NygUtB23eO59PedLnd82b5JIgRFVudXsDWEMBr7vKjJjK7G2YQ/5aIZc3NmBOOQ00Lzgxt1xlBLBjgGykXj8E8JlQNQbJgppggAt5YUALCsCAdgTL4w4GRJnCfIAo5/V0GR8DAUTZTREGyPJxkAc42SdK3CvEKg+wmGvGsqR9HeQGMN6mZiqSUUssDQxSs9ZbUJYGgB+J2S0A3jo1gBditsJnTJ9/ZqEoMELNSr7OeWoTWkUfUDPB8kN0gLf9pYFonLbPWb4rRdzXZNFpTUuSlEx/KDXOsMQOdet6W+N7gwWm6SqeijrAwyz7PnBHbGa4xEq/0gW9SR0tR9jnYJL+bk5va/wqRrv3MDcw/k56L0LcQM8VHeco5gYOaecS5gYWlD0nMekCoWf12ugCffK/AspB1q0CglG1CgD+oxJ8GLfCgGb4hWKFARXIDL0UUR3w2kWCA3ixI2M9b95hyD02hBof1/htQv49Y65s9Gg/fzwui0mJ/gBvcce2sOkXgAAAAABJRU5ErkJggg=="/>
     <link rel="icon" type="image/png" sizes="96x96"
@@ -19,21 +18,6 @@
     <style>
 
         :root {
-            --app-bg-color: linear-gradient(135deg, #f7f7f7, #eaeaea);
-            --btn-active-bg-color: linear-gradient(135deg, #e84c88, #f29c44);
-            --btn-active-text-color: #ffffff;
-            --arrow-text-color: #4fc39b;
-            --arrow-text-bg: linear-gradient(45deg, #5fd5b6, #d0f224);
-            --arrow-box-shadow: 0px 4px 8px rgba(79, 195, 155, 0.3), 0px 2px 4px rgba(0, 0, 0, 0.1);
-
-            --feature-bg-color: linear-gradient(85deg, #f1fff9, #f1fff900 51%);
-            --left-arrow-wrapper-bg-color: linear-gradient(to right, rgb(215 236 225 / 40%), transparent);
-
-            --head-text-color: #333333;
-            --text-color: #5a5a5a;
-        }
-
-        html[data-theme='dark'] {
             --app-bg-color: linear-gradient(0deg, #f1fff9, #f1fff900 30%),
             radial-gradient(circle at 0 0, #9ac2b5 0, #a1e8d000 30%),
             linear-gradient(180deg, #b3e8f7b3 -10%, #b3e8f700 70%),
@@ -41,6 +25,16 @@
 
             --btn-active-bg-color: linear-gradient(135deg, #4fc39b, #5fd5b6);
             --btn-active-text-color: #ffffff;
+            --arrow-text-color: #4fc39b;
+            --arrow-text-bg: linear-gradient(45deg, #5fd5b6, #d0f224);
+            --arrow-box-shadow: 0px 4px 8px rgba(79, 195, 155, 0.3), 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+            --content-feature-bg-color: linear-gradient(85deg, #f1fff9, #f1fff900 51%);
+            --content-feature-even-bg-color: linear-gradient(245deg, #f1fff9, #f1fff900 51%);
+            --left-arrow-wrapper-bg-color: linear-gradient(to right, rgb(215 236 225 / 40%), transparent);
+
+            --head-text-color: #333333;
+            --text-color: #5a5a5a;
         }
 
         :root {
@@ -218,7 +212,7 @@
             align-items: center;
             margin: 1rem 0;
             padding: 2rem 1rem;
-            background: var(--feature-bg-color);
+            background: var(--content-feature-bg-color);
             border-radius: 10px;
             -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1), 0px 2px 20px rgba(0, 0, 0, 0.05);
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1), 0px 2px 20px rgba(0, 0, 0, 0.05);
@@ -233,7 +227,7 @@
             -ms-flex-pack: end;
             justify-content: flex-end;
             background: -o-linear-gradient(205deg, #f1fff9, #f1fff900 51%);
-            background: linear-gradient(245deg, #f1fff9, #f1fff900 51%);
+            background: var(--content-feature-even-bg-color);
         }
 
         .content-feature:nth-child(odd) .feature-wrapper {
