@@ -1116,14 +1116,14 @@
                 <img class="logo-img" src=${logo} alt="logo"/>`
         }
 
-        function SignUpLink() {
+        function SignUpLink(active) {
 
             function clickHandler() {
                 window.location.href = "./signup"
             }
 
             return html`
-                <button class='btn mt-8' onclick="${clickHandler}">CREATE YOUR FREE VENDOR SHOP AND MARKET
+                <button class="${'btn mt-8'} ${active !== false ? ' action-color' : ''}" onclick="${clickHandler}">CREATE YOUR FREE VENDOR SHOP AND MARKET
                 </button>`
         }
 
@@ -1217,7 +1217,7 @@
                             <span class="header-sub-title">The most complete Telegram e-commerce solution.</span>
                         </div>
                     </div>
-                    <${SignUpLink}/>
+                    <${() => SignUpLink(false)}/>
                     <${DashboardLink}/>
 
                 </div>`
@@ -1364,7 +1364,7 @@
         function Footer() {
             return html`
                 <div class='footer'>
-                    <${SignUpLink}/>
+                    <${() => SignUpLink(true)}/>
                 </div>`
         }
 
