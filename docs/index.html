@@ -23,8 +23,6 @@
             linear-gradient(180deg, #b3e8f7b3 -10%, #b3e8f700 70%),
             radial-gradient(circle at 95% 0, #e4f991 0, #a1e8d000 20%);
 
-            /*--btn-active-bg-color: linear-gradient(135deg, #4fc39b, #5fd5b6);*/
-            /*--btn-active-bg-color: linear-gradient(135deg, #374e46, #2bab5d);;*/
             --btn-active-bg-color: linear-gradient(135deg, #445d4d, #2bab5d);
             --btn-active-bg-color-hover: linear-gradient(135deg, #2bab5d, #239e4f);
             --btn-active-text-color: #ffffff;
@@ -75,16 +73,6 @@
             }
         }
 
-        @keyframes slide {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
         #app {
             display: -webkit-box;
             display: -ms-flexbox;
@@ -122,6 +110,7 @@
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
+            flex-direction: column;
             -webkit-box-pack: center;
             -ms-flex-pack: center;
             justify-content: center;
@@ -129,17 +118,15 @@
             -ms-flex-align: center;
             align-items: center;
             position: fixed;
-            width: 120px;
-            height: 120px;
-            padding: .5rem 1rem;
-            top: -.5rem;
-            right: -.5rem;
-            border-top-left-radius: 50%;
-            border-bottom-left-radius: 50%;
-            border-bottom-right-radius: 50%;
+            width: 110px;
+            height: 110px;
+            padding: 1rem;
+            top: -1.5rem;
+            right: -1rem;
+            border-radius: 50%;
             cursor: pointer;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: bold;
             letter-spacing: .05rem;
             z-index: 10;
@@ -155,6 +142,16 @@
             -webkit-transition: all 0.2s ease;
             -o-transition: all 0.2s ease;
             transition: all 0.2s ease;
+        }
+
+        .dashboard-signin{
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            font-size: .9rem;
+            font-weight: normal;
+            letter-spacing: .05rem;
+            bottom: 35px;
         }
 
         .header-wrapper {
@@ -512,10 +509,16 @@
             }
 
             .dashboard-link {
-                width: 145px;
-                height: 140px;
-                font-size: 1.5rem;
-                padding: .5rem 1.2rem;
+                width: 130px;
+                height: 130px;
+                font-size: 1.3rem;
+                top: -2rem;
+                right: -.7rem;
+            }
+
+            .dashboard-signin{
+                font-size: 1.2rem;
+                bottom: 40px;
             }
 
             .feature-description-title {
@@ -611,9 +614,15 @@
             }
 
             .dashboard-link {
-                width: 100px;
+                width: 90px;
                 height: 90px;
                 font-size: .9rem;
+                right: -.8rem;
+            }
+
+            .dashboard-signin{
+                font-size: .8rem;
+                bottom: 30px;
             }
 
             .content-feature {
@@ -707,9 +716,15 @@
             }
 
             .dashboard-link {
-                font-size: 0.8rem;
-                width: 80px;
-                height: 75px;
+                width: 70px;
+                height: 70px;
+                font-size: 0.7rem;
+                right: -.7rem;
+            }
+
+            .dashboard-signin{
+                font-size: .7rem;
+                bottom: 25px;
             }
 
             .content-feature {
@@ -1199,7 +1214,10 @@
 
         function DashboardLink(){
             return html`
-                <a href={'/dashboard'} class="dashboard-link action-color">DASHBOARD</a>`
+                <a href={'/dashboard'} class="dashboard-link action-color">
+                    <span>DASHBOARD</span>
+                    <span class="dashboard-signin">Sign In</span>
+                </a>`
         }
 
         function Header() {
