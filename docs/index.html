@@ -494,18 +494,6 @@
             transform: scale(1.1);
         }
 
-        .left-arrow-wrapper:active {
-        }
-
-        .right-arrow-wrapper:active {
-        }
-
-        .left-arrow-wrapper:active > .arrow-btn {
-        }
-
-        .right-arrow-wrapper:active > .arrow-btn {
-        }
-
         @media (min-width: 1356px) {
 
             #app {
@@ -1174,9 +1162,10 @@
                 const diffY = Math.abs((e?.changedTouches[0].clientY ?? 0) - startTouchY);
                 const step = 15;
                 e.target.blur();
+                e.preventDefault();
+                e.stopPropagation();
                 if ((diffX < -step || diffX > step) && diffY <= step) {
-                    e.preventDefault();
-                    e.stopPropagation();
+
                     clickHandler(diffX >= step ? "rightArrow" : "leftArrow");
                     setStartTouchX(0);
                     setStartTouchY(0);
