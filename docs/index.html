@@ -318,6 +318,7 @@
             animation: slide 0.8s linear;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            user-select: none;
         }
 
         .feature-list {
@@ -367,6 +368,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             color: var(--text-color);
             border: 1px solid #e9f7ef;
+            user-select: none;
         }
 
         .btn:hover {
@@ -469,6 +471,7 @@
             background: none;
             -webkit-box-shadow: var(--arrow-box-shadow);
             box-shadow: var(--arrow-box-shadow);
+            user-select: none;
         }
 
         .left-arrow-wrapper:hover {
@@ -489,6 +492,18 @@
         .right-arrow-wrapper:hover > .arrow-btn {
             background: var(--arrow-text-bg);
             transform: scale(1.1);
+        }
+
+        .left-arrow-wrapper:active {
+        }
+
+        .right-arrow-wrapper:active {
+        }
+
+        .left-arrow-wrapper:active > .arrow-btn {
+        }
+
+        .right-arrow-wrapper:active > .arrow-btn {
         }
 
         @media (min-width: 1356px) {
