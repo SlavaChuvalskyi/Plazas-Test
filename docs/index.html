@@ -1179,6 +1179,7 @@
                 if (!isEventString) {
                     e.preventDefault();
                     e.stopPropagation();
+                    e.target.blur();
                 }
 
                 if (action === 'leftArrow' || action === 'image-block') {
