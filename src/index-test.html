@@ -726,12 +726,7 @@
         }
     </style>
     <script type="module" crossorigin>
-        import {h, render} from 'https://esm.sh/preact';
-        import htm from 'https://esm.sh/htm';
-        import {useState} from 'https://esm.sh/preact/hooks';
-
-        // Initialize htm with Preact
-        const html = htm.bind(h);
+        import { html, render, useState } from 'https://esm.sh/htm/preact/standalone';
 
         function SignUpLink() {
 
@@ -755,6 +750,8 @@
             const showSlider = imagesArray.length > 1;
 
             function clickHandler(e) {
+                e.preventDefault();
+                e.stopPropagation();
                 if (imagesArray.length <= 1) {
                     return;
                 }
@@ -861,8 +858,8 @@
                     title: 'Sophisticated ratings and feedback system',
                     subTitle: 'Capture what matters.',
                     text: [
-                        'Let buyers rate product\'s to quality',
-                        'Let buyers rate product\'s to value',
+                        'Let buyers rate product\'s quality',
+                        'Let buyers rate product\'s value',
                         'Assign custom weights to quality and value',
                         'Rate vendors by value provided',
                         'Rate vendors by order handling',
@@ -893,7 +890,7 @@
                         'Help articles and wiki',
                         'Catalogues'
                     ],
-                    images: ['content-example-shipping-policy-1.png', 'content-example-shipping-policy-2.jpg'],
+                    images: ['content-example-shipping-policy-2.jpg', 'content-example-shipping-policy-1.png'],
                 }
             ];
 
