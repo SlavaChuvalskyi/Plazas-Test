@@ -27,8 +27,13 @@
             --btn-active-bg-color-hover: linear-gradient(135deg, #2bab5d, #239e4f);
             --btn-active-text-color: #ffffff;
 
+            --tw-border-opacity: 1;
+            --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / .05);
+            --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+
             --head-text-color: #2e5c59;
             --text-color: #6c757d;
+            --text-error-color: #be5353;
             color-scheme: only light;
         }
 
@@ -176,13 +181,15 @@
             display: flex;
             flex-direction: column;
             width: 100%;
+            margin-top: 1rem;
             flex: 1 1 auto;
         }
 
         .form-field-title{        
             display: flex;
-            width: 35%;
-            font-size: 1.2rem;
+            position: relative;
+            width: 40%;
+            font-size: 1.1rem;
         }
 
         .form-field-input{
@@ -190,14 +197,10 @@
             padding: .4rem;
             border-radius: .375rem;
             border-width: 1px;
-            --tw-border-opacity: 1;
             border-color: rgb(212 212 212 / var(--tw-border-opacity));
-            --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / .05);
-            --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
             box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
             outline-width: 0px;
         }
-
 
         .form-description {
             width: 100%;
@@ -222,7 +225,6 @@
         .clipboard-icon{
             margin-left: .2rem;
             cursor: pointer;
-            position: relative;
         }
 
         .clipboard-tooltip {
@@ -318,7 +320,21 @@
         .w-70 {
             width: 70%;
         }
+
+        .required{
+            display: inline-block;
+            position: relative;
+        }
         
+        .required::after{
+            content: "*";
+            display: inline-block;
+            position: absolute;
+            right: -10px;
+            top: -5px;
+            color: var(--text-error-color);
+        }
+
         @media (min-width: 1356px) {
 
             #app {
@@ -837,14 +853,19 @@
         }
 
         function Form() {
+
+            function submitHandler(e) {
+                console.log('submitHandler', e);
+            }
+
             return html`
                 <div class="signup-form">
-                    <form class="form-container">
+                    <form class="form-container" onsubmit="${submitHandler}">
                             <h3 class="signup-form-header">Create your account</h3>
                         
                             <div class="form-wrapper">
                                 <label for="username" class="mt-4">
-                                    <span class="form-field-title">Username</span>
+                                    <span class="form-field-title"><span class="required">Username</span></span>
                                     <input class="form-field-input" type="text" placeholder="Enter Username" name="username" required/>
                                 </label>
                                 
@@ -853,23 +874,23 @@
                                 </div>
 
                                 <label for="psw" class="mt-4">
-                                    <span class="form-field-title">New Password</span>
+                                    <span class="form-field-title"><span class="required">New Password</span></span>
                                     <input class="form-field-input" type="password" placeholder="Enter New Password" name="psw" required/>
                                 </label>
 
                                 <label for="psw-repeat" class="mt-4">
-                                    <span class="form-field-title">Confirm Password</span>
+                                    <span class="form-field-title"><span class="required">Confirm New Password</span></span>
                                     <input class="form-field-input" type="password" placeholder="Confirm New Password" name="psw-confirm" required/>
                                 </label>
-                            </div>
-                            
-                            <div class="form-description mt-8">
-                                <h4>Before submitting this form:</h4>
-                                With using your telegram associated with your site account, send the following message to any market bot:  <${() => Clipboard('/passwordreset 993138')}/>
+
+                                <div class="form-description mt-8">
+                                    <h4>Before submitting this form:</h4>
+                                    With using your telegram associated with your site account, send the following message to any market bot:  <${() => Clipboard('/passwordreset 993138')}/>
+                                </div>
                             </div>
 
                             <div class="form-footer">
-                                <button class="btn mt-4 w-70 action-color">SIGN UP</button>
+                                <button type="submit" class="btn mt-4 mb-4 w-70 action-color">SIGN UP</button>
                             </div>
                             
                     </form>
@@ -879,8 +900,8 @@
         function Header() {
             return html`
                 <div class='header'>
-                     <${Logo}/>
-                      <${DashboardLink}/>
+                    <${Logo}/>
+                    <${DashboardLink}/>
                 </div>`
         }
 
